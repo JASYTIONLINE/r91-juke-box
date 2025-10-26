@@ -10,6 +10,52 @@
        4. UTILITIES → small helpers for overrides and fine-tuning
    - Comments describe WHY each section exists and HOW it relates to others.
    ============================================================== */
+/*
+====================================================================
+  DigiPort Jukebox Project – UI/UX Design Commentary (Developer Notes)
+====================================================================
+
+This project was created as part of an ongoing effort to refine
+frontend development skills and deepen understanding of applied
+UI/UX design. The focus has been on building a semantically correct,
+visually accessible, and user-friendly site using Bootstrap 5 and 
+custom CSS.
+
+This stylesheet reflects conscious design decisions grounded in 
+Don Norman’s five key principles of interaction design:
+  • Affordances – ensuring users know what actions are possible
+  • Signifiers   – visually signaling those actions clearly
+  • Constraints  – removing ambiguity and limiting unintended use
+  • Mappings     – aligning interface layout with user expectations
+  • Feedback     – providing immediate response to interaction
+
+During the prototyping process, a number of visual and behavioral 
+flaws were identified and addressed:
+
+• Replaced a non-descriptive image link in the footer with a clear,
+  labeled Bootstrap button ("DigiPortAI.com") to improve signifiers
+  and accessibility.
+
+• Retitled the top-left navigation element from “DigiPort” to 
+  “🎵 Jukebox Home” to better reflect the site's identity, and
+  corrected its hover styling to match expected link behavior.
+
+• Removed unnecessary CTA buttons from the hero section to maintain
+  structural clarity and avoid misleading affordances.
+
+• Added a non-interactive “Navigation:” label before menu links in 
+  the navbar to improve semantic clarity and reduce cognitive load.
+
+• Enforced a strict policy against excessive <div> usage, replacing
+  generic containers with semantic HTML elements (e.g., <header>, 
+  <nav>, <section>, <article>, <footer>) to enhance code readability 
+  and maintainability.
+
+These choices were made with a user-first mindset, balancing clarity,
+consistency, and clean architecture. This file, and the site it styles,
+should be viewed as both a production-grade artifact and a reflection
+of the developer’s evolving design maturity.
+*/
 
 
 /* ==============================================================
@@ -64,10 +110,22 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* ============================================
+   STYLE: Main nav link and brand text color
+   ============================================ */
 .navbar-brand,
 .nav-link {
   color: var(--jukebox-gold) !important;
   font-weight: 600;
+}
+
+/* =============================================================
+   INTERACTION FIX: Make "Jukebox Home" brand label behave
+   like a real nav link (visual affordance on hover)
+   ============================================================= */
+.navbar-brand:hover {
+  text-decoration: underline;
+  color: var(--jukebox-gold);
 }
 
 .navbar-nav .nav-link:hover {

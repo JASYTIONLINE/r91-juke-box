@@ -1,0 +1,32 @@
+{
+  "name": "r06-design-system-repository",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Master design system and digital asset library for the DigiPort / DragonEye / Jukebox universe. Contains shared themes, CSS, JS utilities, and media assets for all DigiPort projects.",
+  "author": "John Barkle <johnbarkle@msn.com>",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/r06-design-system-repository.git"
+  },
+  "scripts": {
+    "build": "echo \"No build process defined — static repo.\"",
+    "export-index": "node export-index-tree.js",
+    "export-tree": "node export-tree-json.js",
+    "serve": "npx http-server ./docs -p 8080"
+  },
+  "keywords": [
+    "design-system",
+    "digiport",
+    "dragoneye",
+    "jukebox",
+    "bootstrap",
+    "css",
+    "theme",
+    "web",
+    "node"
+  ],
+  "devDependencies": {},
+  "dependencies": {}
+}

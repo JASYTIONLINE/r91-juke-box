@@ -1,0 +1,123 @@
+{
+  // -------------------------------------------------------------
+  // name:
+  // This is the unique identifier for the package (your project).
+  // It should be lowercase, use hyphens instead of spaces, and match
+  // your repository folder name if possible. In npm terms, this acts
+  // as the “package name,” even though you’re not publishing to npm.
+  // It helps tools recognize the root of your project.
+  "name": "r06-design-system-repository",
+
+  // -------------------------------------------------------------
+  // version:
+  // Every project has a version number following semantic versioning:
+  // MAJOR.MINOR.PATCH (example: 1.0.0).
+  // - Increment MAJOR when you make breaking changes.
+  // - Increment MINOR for new features that are backward-compatible.
+  // - Increment PATCH for small fixes or adjustments.
+  // This is helpful for tracking updates across your ecosystem.
+  "version": "1.0.0",
+
+  // -------------------------------------------------------------
+  // description:
+  // A human-readable summary of what this repository is.
+  // It appears on GitHub under the repo name and in npm metadata.
+  // Keep it short but descriptive—it’s your “elevator pitch.”
+  "description": "Master design system and digital asset library for the DigiPort / DragonEye / Jukebox universe. Contains shared themes, CSS, JS utilities, and media assets for all DigiPort projects.",
+
+  // -------------------------------------------------------------
+  // author:
+  // Identifies the creator of the project.
+  // Including your email provides context for future maintainers or collaborators.
+  "author": "John Barkle <johnbarkle@msn.com>",
+
+  // -------------------------------------------------------------
+  // license:
+  // This must match the license file in your repo. It tells others under
+  // what terms they can use or share your code.
+  // "MIT" is a very permissive license, but in your repo the MEDIA section
+  // remains protected by your custom clause.
+  "license": "MIT",
+
+  // -------------------------------------------------------------
+  // private:
+  // Setting "private": true prevents accidental publication to npm.
+  // This is crucial since you’re not distributing it as a public package;
+  // it’s an internal design system and asset host.
+  "private": true,
+
+  // -------------------------------------------------------------
+  // repository:
+  // This block connects your local project to its online Git repository.
+  // It allows GitHub and npm to display "View source" links automatically.
+  // The URL should match your actual GitHub repo address.
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/r06-design-system-repository.git"
+  },
+
+  // -------------------------------------------------------------
+  // scripts:
+  // This section defines custom commands you can run with npm.
+  // Each key is the command name, and each value is what runs in the terminal.
+  // For example: npm run export-index will execute "node export-index-tree.js".
+  // These act like personal shortcuts or aliases for repetitive tasks.
+  "scripts": {
+    // build:
+    // Placeholder for projects that compile code before deployment.
+    // Since your design system is static (no compilation step),
+    // this simply prints a message instead of doing real work.
+    "build": "echo \"No build process defined — static repo.\"",
+
+    // export-index:
+    // Runs the Node.js script you wrote that walks the project structure
+    // and generates a JSON file showing each folder's index.html location.
+    // You’ll use this to regenerate tree.json whenever the repo changes.
+    "export-index": "node export-index-tree.js",
+
+    // export-tree:
+    // Similar to export-index, but runs the simpler folder-map generator.
+    // It builds tree.json without the indexPath entries (for reference use).
+    "export-tree": "node export-tree-json.js",
+
+    // serve:
+    // Uses the http-server package (run dynamically with npx) to preview
+    // your docs or website locally. The command spins up a small web server
+    // that serves files from the ./docs folder at http://localhost:8080.
+    // This lets you test what GitHub Pages will show before publishing.
+    "serve": "npx http-server ./docs -p 8080"
+  },
+
+  // -------------------------------------------------------------
+  // keywords:
+  // A list of search terms that describe this project.
+  // These are optional, but helpful if you ever list this publicly or
+  // want collaborators to find it. Think of them like hashtags.
+  "keywords": [
+    "design-system",
+    "digiport",
+    "dragoneye",
+    "jukebox",
+    "bootstrap",
+    "css",
+    "theme",
+    "web",
+    "node"
+  ],
+
+  // -------------------------------------------------------------
+  // devDependencies:
+  // Lists packages used only during development (not required at runtime).
+  // Examples might include linters, compilers, or test frameworks.
+  // Right now, you don’t have any, but if you install something like
+  // nodemon or eslint, it will automatically appear here.
+  "devDependencies": {},
+
+  // -------------------------------------------------------------
+  // dependencies:
+  // Lists libraries or modules your project actually depends on at runtime.
+  // In your case, this remains empty because your scripts use only Node’s
+  // built-in modules (like fs and path). If you ever install something with
+  // npm install --save <package>, it’ll appear here automatically.
+  "dependencies": {}
+}
