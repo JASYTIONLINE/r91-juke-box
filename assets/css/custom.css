@@ -133,15 +133,18 @@ body {
   text-decoration: underline;
 }
 
-/* === Footer ===
-   Mirrors the navbar for visual balance.
-   Also framed with a gold stroke to anchor the bottom of the page. */
-footer {
+
+/* === Page Footer ===
+   Applies ONLY to the global page-level <footer> (bottom of page)
+   Avoids styling <footer> elements inside cards.
+*/
+footer.site-footer {
   background-color: var(--jukebox-red);
   border: 2px solid var(--jukebox-gold);
   color: var(--jukebox-text-light);
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.6);
 }
+
 
 footer img {
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
@@ -177,6 +180,17 @@ header.jukebox-card {
   color: var(--jukebox-text-light);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+}
+/* =============================================================
+   CARD ALIGNMENT: Flexbox layout for 3-zone cards
+   Ensures all cards distribute header, body, and button
+   evenly — improves horizontal alignment and vertical rhythm.
+   This is used in index.html to align 4 cards side by side.
+   ============================================================= */
+.jukebox-card.d-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .jukebox-card h1,
