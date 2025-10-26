@@ -1,0 +1,215 @@
+/* ==============================================================
+   JUKEBOX PROJECT — CUSTOM CSS (Bootstrap 5)
+   ==============================================================
+   PURPOSE:
+   - Establish a stable, theme-driven design system for the Jukebox Project.
+   - Written in professional developer order:
+       1. GLOBALS → variables & resets (foundation)
+       2. LAYOUT → site-wide structure rules
+       3. COMPONENTS → reusable UI parts (navbar, hero, cards, buttons, etc.)
+       4. UTILITIES → small helpers for overrides and fine-tuning
+   - Comments describe WHY each section exists and HOW it relates to others.
+   ============================================================== */
+
+
+/* ==============================================================
+   1. GLOBALS (Variables & Core Styling)
+   --------------------------------------------------------------
+   Developer logic:
+   - Variables define your design system tokens (colors, fonts, spacing).
+   - Declared first because every section below depends on them.
+   ============================================================== */
+
+:root {
+  --jukebox-red: #5c1a14;        /* Warm red-brown brand color */
+  --jukebox-gold: #FFD700;       /* Accent color (borders, highlights) */
+  --jukebox-dark: #0d1117;       /* Site background (charcoal black) */
+  --jukebox-text-light: #fdf6e3; /* Off-white text for readability on red */
+  --jukebox-text-muted: #e5c97d; /* Pale gold for secondary text */
+}
+
+/* === Base Page Layout ===
+   Developer logic:
+   - Controls site-wide look (background, typography, page width).
+   - Comes before components so that they inherit from it. */
+body {
+  background-color: var(--jukebox-dark);
+  color: var(--jukebox-text-light);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Cinematic width constraint: gives a consistent 1080p look */
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 0.5rem; /* breathing space above sticky nav */
+}
+
+
+/* ==============================================================
+   2. LAYOUT (Structure-Level Rules)
+   --------------------------------------------------------------
+   Developer logic:
+   - Defines overall scaffolding like navbar, footer, and global sections.
+   - Ordered before individual components to ensure hierarchy clarity.
+   ============================================================== */
+
+/* === Navbar (sticky header) ===
+   Keeps the navigation visible as you scroll.
+   In a React project, this would become a <Navbar /> component. */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--jukebox-red) !important;
+  border: 2px solid var(--jukebox-gold);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--jukebox-gold) !important;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--jukebox-text-muted) !important;
+  text-decoration: underline;
+}
+
+/* === Footer ===
+   Mirrors the navbar for visual balance.
+   Also framed with a gold stroke to anchor the bottom of the page. */
+footer {
+  background-color: var(--jukebox-red);
+  border: 2px solid var(--jukebox-gold);
+  color: var(--jukebox-text-light);
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.6);
+}
+
+footer img {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+}
+
+
+/* ==============================================================
+   3. COMPONENTS (Reusable UI Parts)
+   --------------------------------------------------------------
+   Developer logic:
+   - Each block here represents a discrete UI “component.”
+   - Ordered roughly in page appearance: Hero → Cards → Buttons → Media.
+   ============================================================== */
+
+/* === Hero Section ===
+   The hero is the site’s introduction and visual anchor. */
+header.jukebox-card {
+  background-color: var(--jukebox-red);
+  border: 2px solid var(--jukebox-gold);
+  border-radius: 0.5rem;
+  color: var(--jukebox-text-light);
+  padding: 2rem 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* === Card (standard reusable content container) ===
+   Used for small, self-contained sections or callouts. */
+.jukebox-card {
+  background-color: var(--jukebox-red);
+  border: 2px solid var(--jukebox-gold);
+  border-radius: 0.5rem;
+  color: var(--jukebox-text-light);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.jukebox-card h1,
+.jukebox-card h2,
+.jukebox-card h3,
+.jukebox-card h4 {
+  color: var(--jukebox-gold);
+  font-weight: 700;
+}
+
+/* === Full-Width Card Section ===
+   Used for large horizontal sections like Featured Song & About. */
+.jukebox-card-full {
+  background-color: var(--jukebox-red);
+  border: 2px solid var(--jukebox-gold);
+  width: 100%;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Inner wrapper limits line length for readability. */
+.jukebox-card-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  color: var(--jukebox-text-light);
+}
+
+.jukebox-card-full h3 {
+  color: var(--jukebox-gold);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* === Buttons ===
+   Bootstrap buttons extended with brand palette. */
+.btn-warning {
+  background-color: var(--jukebox-gold);
+  color: var(--jukebox-dark);
+  border: 1px solid var(--jukebox-gold);
+  font-weight: 600;
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+  background-color: #e5c100;
+  color: var(--jukebox-dark);
+}
+
+.btn-outline-warning {
+  border-color: var(--jukebox-gold);
+  color: var(--jukebox-gold);
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--jukebox-gold);
+  color: var(--jukebox-dark);
+}
+
+/* === Audio Player ===
+   Standardized size and spacing for consistent presentation.
+   In MERN this becomes a reusable <AudioPlayer /> component. */
+audio {
+  width: 400px;
+  max-width: 90%;
+  margin: 0.75rem auto 0;
+  display: block;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+}
+
+
+/* ==============================================================
+   4. UTILITIES (One-Line Helper Classes)
+   --------------------------------------------------------------
+   Developer logic:
+   - Utilities apply small, atomic changes.
+   - Used to fine-tune layouts or override defaults without duplication.
+   ============================================================== */
+
+.text-gold   { color: var(--jukebox-gold); }
+.text-ivory  { color: var(--jukebox-text-light) !important; }
+.text-muted  { color: var(--jukebox-text-muted) !important; }
+
+.bg-red      { background-color: var(--jukebox-red) !important; }
+.border-gold { border-color: var(--jukebox-gold) !important; }
+
+/* Keeps large content cards centered under hero (optional helper). */
+.jukebox-section {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
