@@ -13,10 +13,22 @@
 
 <body>
 
-  <!-- Injected Partial: Header -->
-  <div id="site-header"></div>
+<!-- ============================================================================
+     SHARED HEADER PARTIAL INJECTION
+     ============================================================================
+     This section loads the shared header (navigation bar) onto the page.
+     The actual content is injected at runtime via JavaScript using fetch()
+     from the /partials/header.html file.
 
-  <!-- HERO SECTION -->
+     This method allows the same header to be reused across all pages without
+     duplicating code, and ensures consistent updates site-wide. The container
+     below (#site-header) is replaced with the full nav bar during page load.
+============================================================================ -->
+
+<div class="sticky-header" id="site-header"></div>
+
+<!-- HERO SECTION -->
+
   <header class="hero-section text-center">
     <img src="assets/media/images/jasyti-profile.png" alt="JASYTI Profile"
       class="rounded-circle img-fluid border-gold mb-3 hero-profile-img" />
