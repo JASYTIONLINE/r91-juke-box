@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +14,7 @@
 
 <body>
 
-<!-- ============================================================================
+  <!-- ============================================================================
      SHARED HEADER PARTIAL INJECTION
      ============================================================================
      This section loads the shared header (navigation bar) onto the page.
@@ -25,9 +26,9 @@
      below (#site-header) is replaced with the full nav bar during page load.
 ============================================================================ -->
 
-<div class="sticky-header" id="site-header"></div>
+  <div class="sticky-header" id="site-header"></div>
 
-<!-- HERO SECTION -->
+  <!-- HERO SECTION -->
 
   <header class="hero-section text-center">
     <img src="assets/media/images/jasyti-profile.png" alt="JASYTI Profile"
@@ -81,11 +82,17 @@
   <section class="section-card text-center">
     <h3 class="text-gold">🎧 Featured Song</h3>
     <p class="text-muted">This week’s spotlight track — enjoy a preview below.</p>
-    <img src="assets/media/images/placeholder.png" alt="Featured Album Art"
+
+    <!-- Rename the Song File and Album Art to to "featured.xxx" - Do NOt Change HTML-->
+         <img src="assets/media/images/feature.png" alt="Featured Album Art"
       class="img-fluid rounded mb-3 border-gold album-art" />
+    
+      <!-- Featured Song Title and Artist-->
+    <h2 class="text-gold">We Are The Guard - A Rock Anthem by JASYTI and MMP</h2>
     <audio controls>
-      <source src="assets/media/audio/songs/song1.mp3" type="audio/mpeg" />
+      <source src="assets/media/audio/songs/feature.mp3" type="audio/mpeg" />
     </audio>
+
   </section>
 
   <!-- ABOUT SECTION -->
@@ -116,4 +123,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
