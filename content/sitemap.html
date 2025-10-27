@@ -1,234 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- ========================================================
-       DigiPort / DragonEye Sitemap Page
-       ========================================================
-       PURPOSE:
-       This page dynamically renders a human-readable site map
-       using the folder tree exported into assets/data/tree.json.
-       
-       It allows users (or search engines) to:
-       - View all navigable index.html pages
-       - See clear, labeled links
-       - Navigate via clean, branded UI
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigiPort Jukebox – Site Map</title>
 
-       It uses:
-       - Bootstrap 5 (via CDN)
-       - Your existing red/gold CSS theme
-       - JavaScript (Fetch API) to render from JSON
+  <!-- This meta tag marks this page as eligible for inclusion in the sitemap -->
+  <meta name="sitemap" content="include" />
+
+  <!-- ---------------------------------------------------------------
+     CSS Dependencies: Bootstrap + Custom Theme
+     ---------------------------------------------------------------
+     We include Bootstrap for layout and responsive behavior,
+     and then layer your custom red/gold styles on top of it.
   -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DigiPort Site Map</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/custom.css" />
 
-  <!-- === BOOTSTRAP STYLESHEET === -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- === YOUR CUSTOM THEME === -->
-  <link rel="stylesheet" href="../../assets/css/custom.css">
-
-  <!-- === INTERNAL OVERRIDES FOR LAYOUT & VISUALS === -->
+  <!-- ---------------------------------------------------------------
+     Custom Styling for the Sitemap Layout
+     ---------------------------------------------------------------
+     These rules are specific to the sitemap page layout:
+     - Restrict max width to 1920px
+     - Define a responsive grid that wraps links
+     - Customize link appearance to match your theme
+  -->
   <style>
-    body {
-      background-color: var(--jukebox-dark);
-      color: var(--jukebox-text-light);
-      font-family: "Segoe UI", Roboto, sans-serif;
+    /* Set the outermost page content to max 1920px, centered */
+    .sitemap-container {
+      max-width: 1920px;
+      margin: 0 auto;
     }
 
-    .sitemap-card {
-      background-color: var(--jukebox-red);
-      border: 2px solid var(--jukebox-gold);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    }
-
-    .sitemap-header {
-      color: var(--jukebox-gold);
-      font-weight: 700;
-    }
-
-    .folder, .file {
-      cursor: pointer;
-      user-select: none;
-      display: block;
-      padding: 0.3rem 0.5rem;
-      margin-bottom: 0.2rem;
-      border-radius: 0.25rem;
-      transition: background-color 0.2s ease;
-    }
-
-    .folder:hover, .file:hover {
-      background-color: rgba(255, 215, 0, 0.1);
-    }
-
-    .folder::before { content: "📁 "; }
-    .file::before   { content: "📄 "; }
-
-    a.file {
+    /* Each sitemap link should look like a clean text link */
+    .sitemap-link {
+      display: inline-block;
+      margin: 0.25rem 0;
+      color: var(--bs-warning); /* uses your gold theme */
       text-decoration: none;
-      color: var(--jukebox-text-light);
+      font-weight: 500;
+      transition: color 0.2s ease;
     }
 
-    a.file:hover {
-      color: var(--jukebox-gold);
+    .sitemap-link:hover {
+      text-decoration: underline;
+      color: #ffd700; /* brighter gold hover */
     }
 
-    .indent {
-      margin-left: 1.2rem;
-      border-left: 1px solid rgba(255, 215, 0, 0.2);
-      padding-left: 1rem;
+    /* This grid defines the visual layout of the links:
+       - Each link is placed in its own column
+       - On wider screens, we allow up to 8 columns
+       - On smaller screens, Bootstrap auto-wraps as needed
+    */
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.5rem 2rem;
+      justify-content: start;
     }
 
-    .search-box {
-      background-color: var(--jukebox-dark);
-      border: 2px solid var(--jukebox-gold);
-      color: var(--jukebox-text-light);
+    @media (min-width: 1200px) {
+      .sitemap-grid {
+        grid-template-columns: repeat(8, 1fr); /* fixed 8 per row at large width */
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ===========================================================
-       NAVBAR
-       Shows DigiPort brand and keeps consistent styling.
-       =========================================================== -->
+  <!-- ---------------------------------------------------------------
+     TOP NAVIGATION BAR (Cloned from index.html)
+     ---------------------------------------------------------------
+     This nav bar must match your homepage *exactly*, including:
+     - Brand on the left
+     - Icon-labeled nav links on the right
+     - Bootstrap responsive toggle
+  -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand text-gold fw-bold" href="../../index.html">🎵 DigiPort</a>
-      <span class="navbar-text text-muted">Site Map</span>
+      <a class="navbar-brand fw-bold text-gold" href="/index.html">🎵 Jukebox Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <!-- Label inside nav bar (not clickable) -->
+          <li class="nav-item d-flex align-items-center px-2">
+            <span class="fw-bold text-gold" style="cursor: default; user-select: none;">Navigation:</span>
+          </li>
+          <!-- Icon-labeled navigation links -->
+          <li class="nav-item"><a class="nav-link" href="/content/video/">🎬 Music Videos</a></li>
+          <li class="nav-item"><a class="nav-link" href="/content/audio/">🎧 Audio Library</a></li>
+          <li class="nav-item"><a class="nav-link" href="/content/karaoke/">🎤 Karaoke Lounge</a></li>
+          <li class="nav-item"><a class="nav-link" href="/content/band/">🥁 Band Practice</a></li>
+          <li class="nav-item"><a class="nav-link" href="/content/sitemap.html">🗺️ Site Map</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <!-- ===========================================================
-       MAIN CONTENT WRAPPER
-       Contains the title, description, search box, and rendered tree.
-       =========================================================== -->
-  <main class="container py-4">
-    <div class="sitemap-card">
-      <h1 class="sitemap-header mb-3">📖 DigiPort Sitemap</h1>
-      <p class="text-muted mb-3">
-        This sitemap is <strong>auto-generated</strong> from your <code>tree.json</code> file.<br>
-        Each folder that contains an <code>index.html</code> file will appear as a clickable page.
-        Labels are extracted from the <code>&lt;title&gt;</code> tag in each HTML file.
-      </p>
+  <!-- ---------------------------------------------------------------
+     PAGE HEADER: Matches Hero Style
+     ---------------------------------------------------------------
+     This follows the structure of your homepage “welcome card,”
+     but simplified for the current context.
+  -->
+  <header class="text-center py-5 jukebox-card">
+    <h1 class="text-gold fw-bold">🗺️ Site Map</h1>
+    <p class="text-muted">Browse all major pages of the DigiPort Jukebox.</p>
+  </header>
 
-      <!-- === SEARCH INPUT === -->
-      <input type="text" id="searchBox" class="form-control mb-4 search-box" placeholder="Search by page title or folder...">
-
-      <!-- === WHERE WE RENDER THE TREE === -->
-      <div id="sitemapContainer"></div>
-    </div>
+  <!-- ---------------------------------------------------------------
+     MAIN CONTENT AREA: Contains Link Grid
+     ---------------------------------------------------------------
+     All links are inserted into this card by the JavaScript below.
+     This is where the site map lives — clean, clickable links only.
+  -->
+  <main class="container sitemap-container py-5">
+    <section class="jukebox-card p-4">
+      <div class="sitemap-grid" id="sitemapLinks">
+        <!-- This area will be populated dynamically via JS -->
+      </div>
+    </section>
   </main>
 
-  <!-- ===========================================================
-       FOOTER
-       Can include last updated date, site credits, etc.
-       =========================================================== -->
-  <footer class="text-center py-3 border-top border-warning">
-    <p class="text-muted mb-0 small">
-      &copy; 2025 DigiPort / DragonEye Universe — Built dynamically from your folder tree.
-    </p>
+  <!-- ---------------------------------------------------------------
+     FOOTER SECTION (Matches index.html)
+     ---------------------------------------------------------------
+     Footer buttons: Site Map + Style Guide (left), external DigiPortAI link (right)
+  -->
+  <footer class="site-footer py-3">
+    <section class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <section class="mb-2 mb-md-0">
+        <a href="/content/sitemap.html" class="btn btn-outline-warning btn-sm me-2">🗺️ Site Map</a>
+          </section>
+      <a href="https://jasytionline.github.io/" target="_blank" class="btn btn-warning fw-bold">DigiPortAI.com</a>
+    </section>
   </footer>
 
-  <!-- ===========================================================
-       JAVASCRIPT: LOAD & RENDER TREE.JSON
-       Uses Fetch API to pull your JSON and build out the tree.
-       =========================================================== -->
+  <!-- ---------------------------------------------------------------
+     BOOTSTRAP JS (For responsive nav toggling)
+     --------------------------------------------------------------- -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ---------------------------------------------------------------
+     SITEMAP LOADER SCRIPT
+     ---------------------------------------------------------------
+     This JavaScript block loads your generated site structure
+     from the exported `tree.json` file and inserts only the
+     pages marked with `"sitemap": true`.
+  -->
   <script>
-    /**
-     * Fetch the JSON structure created by your Node export script.
-     * This file lives at /assets/data/tree.json.
-     * The browser will read it, parse it, and use it to render
-     * the sitemap with correct links and titles.
-     */
-    fetch('../../assets/data/tree.json')
-      .then(response => {
-        if (!response.ok) throw new Error('Could not load tree.json');
-        return response.json();
-      })
+    fetch('/assets/data/tree.json') // Load JSON sitemap file
+      .then(res => res.json())
       .then(tree => {
-        const container = document.getElementById('sitemapContainer');
+        const flatPages = [];
 
-        /**
-         * renderNode()
-         * Recursively renders folders and pages from the JSON.
-         * Each node can have:
-         * - name (raw folder name)
-         * - indexPath (used to build a link)
-         * - title (from HTML <title> tag)
-         * - children (subfolders or files)
-         */
-        function renderNode(node, parent) {
-          // Skip system folders (like .git)
-          if (node.name.startsWith('.')) return;
-
-          // Create a clickable link if the node represents a page
-          if (node.indexPath) {
-            const link = document.createElement('a');
-            link.href = '../../' + node.indexPath;
-            link.className = 'file';
-            link.textContent = node.title || node.name;
-            parent.appendChild(link);
-          } 
-          // Otherwise, render it as a non-clickable folder label
-          else {
-            const folder = document.createElement('div');
-            folder.className = 'folder';
-            folder.textContent = node.title || node.name;
-            parent.appendChild(folder);
-          }
-
-          // Recursively render any children
-          if (node.children && node.children.length > 0) {
-            const childContainer = document.createElement('div');
-            childContainer.className = 'indent';
-
-            node.children.forEach(child => {
-              if (typeof child === 'object') {
-                renderNode(child, childContainer);
-              }
+        // -------------------------------------
+        // Recursive function to flatten all pages
+        // -------------------------------------
+        // This walks through the JSON hierarchy and collects
+        // all nodes that contain `"sitemap": true`, flattening
+        // them into a single list of valid pages.
+        function traverse(node) {
+          if (node.children) {
+            node.children.forEach(traverse);
+          } else if (node.sitemap) {
+            flatPages.push({
+              path: node.path,                // Relative link path (e.g. "content/audio/index.html")
+              title: node.title || node.name  // Prefer the title from the page, fallback to filename
             });
-
-            parent.appendChild(childContainer);
           }
         }
 
-        /**
-         * The top of your tree.json is just the wrapper (r91-juke-box).
-         * We skip it and go straight to rendering its children.
-         */
-        if (tree.children) {
-          tree.children.forEach(child => {
-            if (typeof child !== 'string') renderNode(child, container);
-          });
-        }
+        traverse(tree); // Start recursive traversal from root
 
-        /**
-         * Enable search functionality.
-         * When the user types in the search box, we filter which
-         * items are visible based on whether they match the query.
-         */
-        const searchBox = document.getElementById('searchBox');
-        searchBox.addEventListener('input', () => {
-          const query = searchBox.value.toLowerCase();
-          document.querySelectorAll('.file, .folder').forEach(el => {
-            const matches = el.textContent.toLowerCase().includes(query);
-            el.style.display = matches ? 'block' : 'none';
-          });
+        // -------------------------------------
+        // Inject links into the page
+        // -------------------------------------
+        // This takes each page and creates a clickable <a>
+        // element that’s inserted into the grid above.
+        const container = document.getElementById('sitemapLinks');
+
+        flatPages.forEach(page => {
+          const link = document.createElement('a');
+          link.href = `/${page.path}`; // Important: prepend leading slash
+          link.textContent = page.title;
+          link.className = 'sitemap-link';
+          container.appendChild(link);
         });
       })
       .catch(err => {
-        // If anything fails, show an error message
-        console.error('❌ Failed to load site map:', err);
-        document.getElementById('sitemapContainer').innerHTML = `
-          <p class="text-danger">⚠️ Could not load sitemap. Check if tree.json exists and is valid.</p>
-        `;
+        // Handle failure case gracefully — show a user-visible error
+        console.error('❌ Error loading sitemap data:', err);
+        document.getElementById('sitemapLinks').innerHTML =
+          '<p class="text-danger">⚠️ Failed to load sitemap data. Check your tree.json path.</p>';
       });
   </script>
 
 </body>
+
 </html>
