@@ -1,217 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ============================================================
-       DigiPort Jukebox — Homepage
-       Semantic & Accessible Rewrite
-       ============================================================ -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DigiPort Jukebox – Home</title>
+  <meta name="sitemap" content="include" />
 
-  <!-- Bootstrap (CDN for layout support) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-<!-- THis line tells the file tree scrubber whther or not to incluse this page in the site indext: true for yes false for no: Only pages teh user might frequently visit will be included inthe site index-->
- <meta name="sitemap" content="include">
-
-  <!-- Your DigiPort custom red/gold theme -->
-  <link rel="stylesheet" href="assets/css/custom.css">
+  <!-- Bootstrap + Custom Theme -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
 </head>
 
 <body>
 
-  <!-- ============================================================
-       TOP NAVIGATION BAR
-       Includes brand home link (left) and labeled nav menu (right)
-       ============================================================ -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
+  <!-- Injected Partial: Header -->
+  <div id="site-header"></div>
 
-      <!-- LEFT: Branded link to Jukebox homepage -->
-      <a class="navbar-brand fw-bold text-gold" href="/index.html">🎵 Jukebox Home</a>
-
-      <!-- MOBILE TOGGLE -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span
-          class="navbar-toggler-icon"></span></button>
-
-      <!-- RIGHT: Navigation links with a label -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-
-          <!-- NAV LABEL (non-clickable) -->
-          <li class="nav-item d-flex align-items-center px-2">
-            <!-- Not a link — just a heading-style label -->
-            <span class="fw-bold text-gold" style="cursor: default; user-select: none;">
-              Navigation:
-            </span>
-          </li>
-
-          <!-- Page links -->
-          <li class="nav-item"><a class="nav-link" href="/content/video/">🎬 Music Videos</a></li>
-          <li class="nav-item"><a class="nav-link" href="/content/audio/">🎧 Audio Library</a></li>
-          <li class="nav-item"><a class="nav-link" href="/content/karaoke/">🎤 Karaoke Lounge</a></li>
-          <li class="nav-item"><a class="nav-link" href="/content/sitemap.html">🗺️ Site Map</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ============================================================
-       PAGE HEADER (Hero)
-       Displays profile image, welcome message, and intro
-       ============================================================ -->
-  <header class="text-center py-5 jukebox-card">
+  <!-- HERO SECTION -->
+  <header class="hero-section text-center">
     <img src="assets/media/images/jasyti-profile.png" alt="JASYTI Profile"
-      class="rounded-circle img-fluid border-gold mb-3" style="width:200px;height:200px;object-fit:cover;">
-    <h1 class="text-gold fw-bold mb-2">Welcome to the Jukebox Project</h1>
-    <h2 class="text-muted fs-5 mb-4">Where your stories become songs.</h2>
-
+      class="rounded-circle img-fluid border-gold mb-3 hero-profile-img" />
+    <h1 class="text-gold fw-bold">Welcome to the Jukebox Project</h1>
+    <h2 class="text-muted fs-5">Where your stories become songs.</h2>
   </header>
 
-  <!-- ============================================================
-       MAIN PAGE CONTENT
-       Contains three portal cards: Video, Audio, Karaoke
-       ============================================================ -->
-  <main class="container py-5">
-    <section class="row g-4">
+  <!-- PORTAL GRID -->
+  <section class="portal-wrapper">
+    <div class="container px-4">
+      <div class="row g-4">
 
-      <!-- === CARD 1: Music Videos === -->
-      <article class="col-md-3">
-        <section class="jukebox-card text-center h-100 d-flex flex-column justify-content-between">
-          <!-- Title -->
-          <header>
+        <article class="col-md-3">
+          <section class="portal-card text-center">
             <h3 class="text-gold">🎬 Music Videos</h3>
-          </header>
-
-          <!-- Description (2 lines) -->
-          <section class="my-2">
-            <p class="text-muted">
-              Watch story-driven music videos produced inside the DigiPort universe.
-            </p>
+            <p class="text-muted">Watch story-driven music videos produced inside the DigiPort universe.</p>
+            <a href="/content/video/" class="btn btn-warning mt-2">Explore Videos</a>
           </section>
+        </article>
 
-          <!-- CTA -->
-          <footer class="mt-3 mb-2">
-            <a href="/content/video/" class="btn btn-warning text-dark fw-bold">Explore Videos</a>
-          </footer>
-        </section>
-      </article>
-
-      <!-- === CARD 2: Audio Library === -->
-      <article class="col-md-3">
-        <section class="jukebox-card text-center h-100 d-flex flex-column justify-content-between">
-          <header>
+        <article class="col-md-3">
+          <section class="portal-card text-center">
             <h3 class="text-gold">🎧 Audio Library</h3>
-          </header>
-          <section class="my-2">
-            <p class="text-muted">
-              Browse original songs, full albums, and curated playlists.
-            </p>
+            <p class="text-muted">Browse original songs, full albums, and curated playlists.</p>
+            <a href="/content/audio/" class="btn btn-warning mt-2">Browse Audio</a>
           </section>
-          <footer class="mt-3 mb-2">
-            <a href="/content/audio/" class="btn btn-warning text-dark fw-bold">Browse Audio</a>
-          </footer>
-        </section>
-      </article>
+        </article>
 
-      <!-- === CARD 3: Karaoke Lounge === -->
-      <article class="col-md-3">
-        <section class="jukebox-card text-center h-100 d-flex flex-column justify-content-between">
-          <header>
+        <article class="col-md-3">
+          <section class="portal-card text-center">
             <h3 class="text-gold">🎤 Karaoke Lounge</h3>
-          </header>
-          <section class="my-2">
-            <p class="text-muted">
-              Sing along with karaoke tracks and custom performance tools.
-            </p>
+            <p class="text-muted">Sing along with karaoke tracks and performance tools.</p>
+            <a href="/content/karaoke/" class="btn btn-warning mt-2">Sing Now</a>
           </section>
-          <footer class="mt-3 mb-2">
-            <a href="/content/karaoke/" class="btn btn-warning text-dark fw-bold">Sing Now</a>
-          </footer>
-        </section>
-      </article>
+        </article>
 
-      <!-- === CARD 4: Band Practice === -->
-      <article class="col-md-3">
-        <section class="jukebox-card text-center h-100 d-flex flex-column justify-content-between">
-          <header>
+        <article class="col-md-3">
+          <section class="portal-card text-center">
             <h3 class="text-gold">🥁 Band Practice</h3>
-          </header>
-          <section class="my-2">
-            <p class="text-muted">
-              A rehearsal zone for the McAllen Mobile Park Band to practice sets.
-            </p>
+            <p class="text-muted">A space for the McAllen Mobile Park Band to rehearse live sets.</p>
+            <a href="/content/band/" class="btn btn-warning mt-2">Enter Practice</a>
           </section>
-          <footer class="mt-3 mb-2">
-            <a href="/content/band/" class="btn btn-warning text-dark fw-bold">Enter Practice</a>
-          </footer>
-        </section>
-      </article>
+        </article>
 
-    </section>
-  </main>
-
-
-
-  <!-- ============================================================
-       FEATURED SONG SECTION
-       Could be rotated weekly or curated by theme
-       ============================================================ -->
-  <section class="jukebox-card-full">
-    <section class="jukebox-card-inner text-center">
-      <h3>🎧 Featured Song</h3>
-      <p class="text-muted">This week’s spotlight track — enjoy a preview below.</p>
-      <img src="assets/media/images/placeholder.png" alt="Featured Album Art" class="img-fluid rounded mb-3 border-gold"
-        style="max-width:300px;">
-      <audio controls>
-        <source src="assets/media/audio/songs/song1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </section>
+      </div>
+    </div>
   </section>
 
-  <!-- ============================================================
-       ABOUT SECTION
-       Brief mission statement or artist background
-       ============================================================ -->
-  <section class="jukebox-card-full">
-    <section class="jukebox-card-inner">
-      <h3>About the Project</h3>
-      <p class="text-muted">
-        The Jukebox Project transforms personal stories into original music.
-        Each track is crafted to capture mood, memory, and meaning.
-        This site is your front door — explore, listen, and discover how creativity
-        and technology can make every story sing.
-      </p>
-    </section>
+  <!-- FEATURED SONG -->
+  <section class="section-card text-center">
+    <h3 class="text-gold">🎧 Featured Song</h3>
+    <p class="text-muted">This week’s spotlight track — enjoy a preview below.</p>
+    <img src="assets/media/images/placeholder.png" alt="Featured Album Art"
+      class="img-fluid rounded mb-3 border-gold album-art" />
+    <audio controls>
+      <source src="assets/media/audio/songs/song1.mp3" type="audio/mpeg" />
+    </audio>
   </section>
 
-  <!-- ============================================================
-       FOOTER: Navigation and external site link
-       ============================================================ -->
-  <footer class="site-footer py-3">
-    <section class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+  <!-- ABOUT SECTION -->
+  <section class="section-card">
+    <h3 class="text-gold">About the Project</h3>
+    <p class="text-muted">
+      The Jukebox Project transforms personal stories into original music. Each track is crafted to capture mood,
+      memory, and meaning. This site is your front door — explore, listen, and discover how creativity and technology
+      can make every story sing.
+    </p>
+  </section>
 
-      <!-- LEFT: Utility buttons -->
-      <section class="mb-2 mb-md-0">
-        <a href="/content/sitemap.html" class="btn btn-outline-warning btn-sm me-2">🗺️ Site Map</a>
-        <a href="/assets/style-guide.html" class="btn btn-outline-warning btn-sm">🎨 Design Guide</a>
-      </section>
+  <!-- Injected Partial: Footer -->
+  <div id="site-footer"></div>
 
-      <!-- RIGHT: External link to DigiPort AI -->
-      <a href="https://jasytionline.github.io/" target="_blank" class="btn btn-warning fw-bold">
-        DigiPortAI.com
-      </a>
-    </section>
-  </footer>
+  <!-- JS Partial Injection -->
+  <script>
+    fetch('/partials/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
 
-  <!-- ============================================================
-       BOOTSTRAP JS (for navbar toggling)
-       ============================================================ -->
+    fetch('/partials/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
+  </script>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
