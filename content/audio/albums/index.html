@@ -5,23 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Albums | DigiPort Jukebox</title>
   <meta name="sitemap" content="include" />
+
+  <!-- ============================================================================
+       STYLESHEETS
+       ----------------------------------------------------------------------------
+       This page is three levels deep inside the site structure: /content/audio/albums/.
+
+       To ensure consistent loading regardless of folder depth or hosting context (like GitHub Pages),
+       we use an ABSOLUTE URL to load our custom CSS file.
+
+       Bootstrap is loaded from a CDN and does not require path adjustments.
+       ============================================================================ -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="stylesheet" href="https://jasytionline.github.io/r91-juke-box/assets/css/custom.css" />
 </head>
+
 <body>
+
+  <!-- ============================================================================
+       SHARED HEADER INJECTION
+       ----------------------------------------------------------------------------
+       The nav bar will be injected into this placeholder at runtime using fetch().
+       We use an ABSOLUTE URL to the partial file to avoid any issues with folder
+       depth or broken relative paths when hosted on GitHub Pages.
+       ============================================================================ -->
   <div id="site-header"></div>
+
+  <!-- ============================================================================
+       HERO / HEADER SECTION FOR ALBUMS PAGE
+       ----------------------------------------------------------------------------
+       This hero block introduces the Albums section of the audio library.
+
+       We use .section-card to apply the signature red background and gold border.
+       Headings are styled with .text-gold and .text-muted to establish visual hierarchy
+       and maintain brand consistency.
+       ============================================================================ -->
+  <header class="section-card text-center py-5">
+    <h1 class="text-gold fw-bold">📀 Albums</h1>
+    <p class="text-muted">
+      Explore full-length albums created around themes, stories, collaborations, and concepts. Each album below represents a complete body of musical work produced through the DigiPort project.
+    </p>
+  </header>
+
+  <!-- ============================================================================
+       UNDER CONSTRUCTION MESSAGE
+       ----------------------------------------------------------------------------
+       Since this page is a placeholder for future content, we clearly inform the user
+       that the feature is under construction.
+
+       The message is styled using the same .section-card layout and a centered call to action
+       that uses the JavaScript `history.back()` function to return the user to the previous page.
+       ============================================================================ -->
   <main class="container my-5">
     <section class="section-card text-center py-5">
-      <h1 class="text-gold fw-bold">🚧 Albums Page Under Construction</h1>
-      <p class="text-muted fs-5">Check back soon to browse albums.</p>
+      <h2 class="text-gold fw-bold">🚧 This page is still under construction.</h2>
+      <p class="text-muted fs-5 mb-4">
+        The Albums section will soon feature full-length curated projects, but it’s not quite ready yet.
+        Please check back later to explore the full catalog.
+      </p>
       <a href="javascript:history.back()" class="btn btn-warning">⬅️ Go Back</a>
     </section>
   </main>
+
+  <!-- ============================================================================
+       SHARED FOOTER INJECTION
+       ----------------------------------------------------------------------------
+       The footer is injected below using an absolute fetch URL.
+
+       This guarantees that the footer will load correctly across all pages in the site,
+       regardless of folder depth or hosting configuration.
+       ============================================================================ -->
   <div id="site-footer"></div>
+
+  <!-- ============================================================================
+       PARTIAL INJECTION SCRIPT
+       ----------------------------------------------------------------------------
+       The JavaScript below loads the header and footer partials from fixed absolute URLs.
+       This ensures that these shared UI components load consistently on all pages,
+       including those buried multiple levels deep within the folder tree.
+       ============================================================================ -->
   <script>
-    fetch('partials/header.html').then(res => res.text()).then(html => document.getElementById('site-header').innerHTML = html);
-    fetch('partials/footer.html').then(res => res.text()).then(html => document.getElementById('site-footer').innerHTML = html);
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
+
+  <!-- ============================================================================
+       BOOTSTRAP JS BUNDLE
+       ----------------------------------------------------------------------------
+       Loads Bootstrap’s JavaScript functionality to enable nav toggles and
+       responsive behavior. This is safe to load via CDN.
+       ============================================================================ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

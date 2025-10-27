@@ -5,23 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Karaoke Catalog | DigiPort Jukebox</title>
   <meta name="sitemap" content="include" />
+
+  <!-- ============================================================================
+       STYLESHEETS
+       ----------------------------------------------------------------------------
+       Because this file is deeply nested inside /content/karaoke/catalog/,
+       any relative reference to shared assets would likely fail on GitHub Pages.
+
+       To prevent pathing issues and ensure predictable performance, we use
+       absolute URLs for both Bootstrap and our custom stylesheet.
+
+       This guarantees full theme loading no matter where this file lives.
+       ============================================================================ -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="stylesheet" href="https://jasytionline.github.io/r91-juke-box/assets/css/custom.css" />
 </head>
+
 <body>
+
+  <!-- ============================================================================
+       SHARED HEADER PARTIAL INJECTION
+       ----------------------------------------------------------------------------
+       This div acts as a placeholder for the nav bar, which is injected at runtime
+       using JavaScript and the fetch() API.
+
+       We use an ABSOLUTE URL to the partial file so it can be reliably loaded
+       regardless of how deeply nested this page is in the folder tree.
+       ============================================================================ -->
   <div id="site-header"></div>
+
+  <!-- ============================================================================
+       HERO / INTRO SECTION FOR KARAOKE CATALOG
+       ----------------------------------------------------------------------------
+       This hero block introduces the Karaoke Catalog feature. It's styled using
+       `.section-card`, which provides a branded red background and gold border.
+
+       Headings and text follow the site-wide visual language using `.text-gold`
+       for key headers and `.text-muted` for supportive detail text.
+
+       This section can later be expanded to dynamically render song cards.
+       ============================================================================ -->
+  <header class="section-card text-center py-5">
+    <h1 class="text-gold fw-bold">🎤 Karaoke Catalog</h1>
+    <p class="text-muted">
+      This is your central hub for browsing and accessing DigiPort’s public karaoke catalog.
+      Tracks will include instrumentals, alternate versions, and voice-removed mixes
+      tailored for individual practice and performance.
+    </p>
+  </header>
+
+  <!-- ============================================================================
+       UNDER CONSTRUCTION MESSAGE
+       ----------------------------------------------------------------------------
+       Since this feature is not yet implemented, we offer users a friendly
+       notice and a call-to-action to return to their previous location.
+
+       This block also uses `.section-card` for styling consistency. The button
+       uses JavaScript's history.back() method for easy navigation.
+       ============================================================================ -->
   <main class="container my-5">
     <section class="section-card text-center py-5">
-      <h1 class="text-gold fw-bold">🚧 Karaoke Catalog - Page Under Construction</h1>
-      <p class="text-muted fs-5">Check back soon to browse albums.</p>
+      <h2 class="text-gold fw-bold">🚧 This catalog is still under construction.</h2>
+      <p class="text-muted fs-5 mb-4">
+        Our team is currently preparing custom karaoke tracks and arrangements.
+        Please check back soon to view and use the full collection.
+      </p>
       <a href="javascript:history.back()" class="btn btn-warning">⬅️ Go Back</a>
     </section>
   </main>
+
+  <!-- ============================================================================
+       SHARED FOOTER PARTIAL INJECTION
+       ----------------------------------------------------------------------------
+       We use the same absolute fetch strategy for the footer as the header.
+
+       This ensures that the footer loads reliably on all pages, regardless of how
+       deep they are within the project structure. Footer includes site map links
+       and branding links consistent with the rest of the site.
+       ============================================================================ -->
   <div id="site-footer"></div>
+
+  <!-- ============================================================================
+       PARTIAL INJECTION SCRIPT
+       ----------------------------------------------------------------------------
+       This block loads our shared header and footer from external HTML partials
+       hosted on GitHub Pages using absolute URLs.
+
+       These assets remain stable even when this page moves to a different
+       subfolder or is deployed to a new domain.
+       ============================================================================ -->
   <script>
-    fetch('partials/header.html').then(res => res.text()).then(html => document.getElementById('site-header').innerHTML = html);
-    fetch('partials/footer.html').then(res => res.text()).then(html => document.getElementById('site-footer').innerHTML = html);
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
+
+  <!-- ============================================================================
+       BOOTSTRAP JAVASCRIPT
+       ----------------------------------------------------------------------------
+       Enables responsive nav behavior and collapsible UI components.
+       Loaded from the official Bootstrap CDN.
+       ============================================================================ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

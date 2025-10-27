@@ -3,37 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Karaoke Portal| DigiPort Jukebox</title>
+  <title>Karaoke Portal | DigiPort Jukebox</title>
   <meta name="sitemap" content="include" />
 
-  <!-- Bootstrap + Custom CSS -->
+  <!-- ============================================================================
+       STYLESHEETS
+       ----------------------------------------------------------------------------
+       Since this file lives in /content/karaoke/, two levels deep from the site root,
+       we use absolute URLs for both Bootstrap (CDN) and our custom stylesheet to
+       guarantee proper loading across environments like GitHub Pages.
+
+       Absolute paths prevent issues that can arise from trying to navigate up
+       relative folder trees when loading shared assets like CSS.
+       ============================================================================ -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/css/custom.css" />
+  <link rel="stylesheet" href="https://jasytionline.github.io/r91-juke-box/assets/css/custom.css" />
 </head>
+
 <body>
 
-  <!-- Injected Partial: Header -->
+  <!-- ============================================================================
+       SHARED HEADER INJECTION
+       ----------------------------------------------------------------------------
+       This header is injected via JavaScript into the placeholder below.
+
+       Because this page is inside a nested folder, we use an ABSOLUTE URL to load
+       the partial. This ensures that the nav bar always loads correctly regardless
+       of the current page depth.
+       ============================================================================ -->
   <div id="site-header"></div>
 
-  <!-- HERO -->
+  <!-- ============================================================================
+       KARAOKE HERO SECTION
+       ----------------------------------------------------------------------------
+       This is the introductory section for the Karaoke branch of the site.
+
+       It is wrapped in a `.section-card` for red background, gold border,
+       and consistent spacing. The heading and subtitle follow your
+       visual hierarchy using `.text-gold` and `.text-muted`.
+
+       This page is themed around the “This Is Your Song” initiative and karaoke
+       catalog content.
+       ============================================================================ -->
   <header class="section-card text-center py-5">
     <h1 class="text-gold fw-bold">🎤 DigiPort Karaoke Zone</h1>
     <p class="text-muted">
-      Welcome to the personalized karaoke portal powered by the "This Is Your Song" initiative.
-      Explore unique backtracks created just for your story.
+      Welcome to the personalized karaoke portal powered by the “This Is Your Song” initiative.
+      Explore unique backing tracks and performance tools created just for you.
     </p>
   </header>
 
-  <!-- KARAOKE CATEGORY GRID -->
+  <!-- ============================================================================
+       KARAOKE CATEGORY GRID
+       ----------------------------------------------------------------------------
+       This section presents two major branches of karaoke content:
+         1. “This Is Your Song” (TIYS) project info
+         2. Karaoke catalog for public browsing
+
+       The links point to local subdirectories (`this-is-your-song/` and `catalog/`),
+       so we use RELATIVE paths — not absolute URLs.
+
+       Layout is done with Bootstrap grid and cards styled using `.section-card`.
+       ============================================================================ -->
   <main class="container my-5">
     <div class="row g-4">
       <div class="col-md-6">
         <section class="section-card text-center h-100 d-flex flex-column justify-content-between">
           <div>
             <h3 class="text-gold">🌟 This Is Your Song</h3>
-            <p class="text-muted">Learn more about the initiative to create custom karaoke tracks for real people and stories.</p>
+            <p class="text-muted">
+              Learn about our custom songwriting initiative, where original karaoke
+              tracks are built for real people with real stories.
+            </p>
           </div>
-          <a href="./this-is-your-song/index.html" class="btn btn-warning mt-3">Visit Project Page</a>
+          <a href="this-is-your-song/index.html" class="btn btn-warning mt-3">Visit Project Page</a>
         </section>
       </div>
 
@@ -41,29 +84,53 @@
         <section class="section-card text-center h-100 d-flex flex-column justify-content-between">
           <div>
             <h3 class="text-gold">🎤 Karaoke Catalog</h3>
-            <p class="text-muted">Browse the growing collection of unique karaoke arrangements available to the public.</p>
+            <p class="text-muted">
+              Browse the growing library of public karaoke arrangements made
+              available by DigiPort for practice and performance.
+            </p>
           </div>
-          <a href="./catalog/index.html" class="btn btn-warning mt-3">Browse Catalog</a>
+          <a href="catalog/index.html" class="btn btn-warning mt-3">Browse Catalog</a>
         </section>
       </div>
     </div>
   </main>
 
-  <!-- Injected Partial: Footer -->
+  <!-- ============================================================================
+       SHARED FOOTER INJECTION
+       ----------------------------------------------------------------------------
+       Our footer is dynamically injected below using an ABSOLUTE path.
+
+       This guarantees proper loading across all pages, especially those deep
+       in the folder tree like this one. Footer includes buttons for Site Map
+       and Design Guide, and links to DigiPortAI.com.
+       ============================================================================ -->
   <div id="site-footer"></div>
 
-  <!-- Partial JS Loader -->
+  <!-- ============================================================================
+       PARTIAL INJECTION SCRIPT
+       ----------------------------------------------------------------------------
+       JavaScript block that loads the shared header and footer via fetch().
+
+       Uses full GitHub Pages URLs to eliminate relative path headaches,
+       and ensure consistent, site-wide injection of navigation and branding.
+       ============================================================================ -->
   <script>
-    fetch('../../partials/header.html')
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
 
-    fetch('../../partials/footer.html')
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/footer.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
 
-  <!-- Bootstrap JS -->
+  <!-- ============================================================================
+       BOOTSTRAP JS BUNDLE
+       ----------------------------------------------------------------------------
+       Enables toggling navigation, responsive layout adjustments, and other
+       Bootstrap interactive behaviors. Sourced via CDN.
+       ============================================================================ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

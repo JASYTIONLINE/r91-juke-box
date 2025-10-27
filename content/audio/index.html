@@ -6,33 +6,75 @@
   <title>Audio Library | DigiPort Jukebox</title>
   <meta name="sitemap" content="include" />
 
-  <!-- Bootstrap + Custom Styles -->
+  <!-- ============================================================================
+       STYLESHEETS
+       ----------------------------------------------------------------------------
+       We are using both Bootstrap (via CDN) and our own custom stylesheet.
+
+       Because this page is nested two folders deep (/content/audio/), we cannot use
+       a relative path for our custom stylesheet without risking 404s.
+
+       Therefore, we reference the custom.css file using an ABSOLUTE GitHub Pages
+       URL. This ensures compatibility across all environments and folder depths.
+       ============================================================================ -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/css/custom.css" />
+  <link rel="stylesheet" href="https://jasytionline.github.io/r91-juke-box/assets/css/custom.css" />
 </head>
 
 <body>
 
-  <!-- Shared Header -->
+  <!-- ============================================================================
+       SHARED HEADER PARTIAL INJECTION
+       ----------------------------------------------------------------------------
+       This header is injected from a shared partial file using JavaScript.
+
+       We use an ABSOLUTE URL for the fetch call to ensure the correct header loads,
+       no matter how deeply nested the page is. The nav bar will appear in the div
+       below with consistent styling across the site.
+       ============================================================================ -->
   <div id="site-header"></div>
 
-  <!-- HERO SECTION -->
+  <!-- ============================================================================
+       HERO SECTION FOR AUDIO
+       ----------------------------------------------------------------------------
+       This is the main hero block for the audio section. It introduces users
+       to the purpose of this part of the site.
+
+       Like all hero blocks, we wrap it in `.section-card` to give it the site’s
+       signature red background and gold border.
+
+       Headings are styled with `.text-gold` and `.text-muted` to conform to the
+       color hierarchy established in our theme.
+       ============================================================================ -->
   <header class="section-card text-center py-5">
     <h1 class="text-gold fw-bold">🎧 DigiPort Audio Library</h1>
-    <p class="text-muted">Explore albums, playlists, and one-of-a-kind story songs.</p>
+    <p class="text-muted">
+      Explore albums, playlists, and one-of-a-kind story songs crafted by DigiPort and its contributors.
+    </p>
   </header>
 
-  <!-- AUDIO CATEGORIES GRID -->
+  <!-- ============================================================================
+       AUDIO CATEGORY GRID
+       ----------------------------------------------------------------------------
+       This grid presents users with three navigation choices:
+         1. Albums
+         2. Songs
+         3. Playlists
+
+       Each card uses the `.section-card` style and is laid out using Bootstrap’s
+       `.row` and `.col-md-4` grid system. All internal links go to subdirectories
+       under /content/audio/ — so we use RELATIVE paths here.
+       ============================================================================ -->
   <main class="container my-5">
     <div class="row g-4">
-      
+
       <div class="col-md-4">
         <section class="section-card text-center h-100 d-flex flex-column justify-content-between">
           <div>
             <h3 class="text-gold">📀 Albums</h3>
-            <p class="text-muted">Browse complete collections by theme or release date.</p>
+            <p class="text-muted">Browse complete collections of songs grouped by theme, release, or contributor.</p>
           </div>
-          <a href="./albums/index.html" class="btn btn-warning mt-3">View Albums</a>
+          <a href="albums/index.html" class="btn btn-warning mt-3">View Albums</a>
         </section>
       </div>
 
@@ -40,9 +82,9 @@
         <section class="section-card text-center h-100 d-flex flex-column justify-content-between">
           <div>
             <h3 class="text-gold">🎵 Songs</h3>
-            <p class="text-muted">Listen to individual tracks from the DigiPort catalog.</p>
+            <p class="text-muted">Listen to individual tracks and sample our latest releases and experiments.</p>
           </div>
-          <a href="./songs/index.html" class="btn btn-warning mt-3">Browse Songs</a>
+          <a href="songs/index.html" class="btn btn-warning mt-3">Browse Songs</a>
         </section>
       </div>
 
@@ -50,30 +92,50 @@
         <section class="section-card text-center h-100 d-flex flex-column justify-content-between">
           <div>
             <h3 class="text-gold">🎼 Playlists</h3>
-            <p class="text-muted">Curated story playlists for moods, genres, and people.</p>
+            <p class="text-muted">Curated lists designed for moods, stories, scenes, or special occasions.</p>
           </div>
-          <a href="./playlists/index.html" class="btn btn-warning mt-3">See Playlists</a>
+          <a href="playlists/index.html" class="btn btn-warning mt-3">See Playlists</a>
         </section>
       </div>
 
     </div>
   </main>
 
-  <!-- Shared Footer -->
+  <!-- ============================================================================
+       SHARED FOOTER PARTIAL INJECTION
+       ----------------------------------------------------------------------------
+       As with the header, we inject our shared footer here using a fetch()
+       request from an ABSOLUTE path. This ensures the layout and branding stay
+       consistent across all sections of the site.
+       ============================================================================ -->
   <div id="site-footer"></div>
 
-  <!-- JS Injection for Partials -->
+  <!-- ============================================================================
+       PARTIAL INJECTION SCRIPT
+       ----------------------------------------------------------------------------
+       This JavaScript block loads the header and footer into the appropriate
+       div containers using fetch().
+
+       We use absolute URLs here so the site functions properly even when served
+       from a GitHub Pages subdirectory like /r91-juke-box/.
+       ============================================================================ -->
   <script>
-    fetch('partials/header.html')
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
-      
-    fetch('partials/footer.html')
+
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/footer.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
 
-  <!-- Bootstrap JS -->
+  <!-- ============================================================================
+       BOOTSTRAP JAVASCRIPT
+       ----------------------------------------------------------------------------
+       Enables responsive behaviors such as collapsing the navbar on smaller
+       screens. Loaded from a CDN.
+       ============================================================================ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

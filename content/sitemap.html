@@ -2,14 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DigiPort Jukebox – Site Map</title>
   <meta name="sitemap" content="exclude" />
 
-  <!-- Bootstrap + Custom Theme -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/custom.css" />
+  <!-- ============================================================================
+       STYLESHEETS
+       ----------------------------------------------------------------------------
+       This page is located at /content/sitemap.html, two levels deep from the root.
 
+       We use an ABSOLUTE URL for the custom theme CSS file to ensure consistent loading
+       in all hosting environments. Bootstrap is loaded from a CDN.
+       ============================================================================ -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://jasytionline.github.io/r91-juke-box/assets/css/custom.css" />
+
+  <!-- ============================================================================
+       INLINE PAGE-SPECIFIC STYLES
+       ----------------------------------------------------------------------------
+       These styles are specific to the sitemap layout and are not used elsewhere.
+       We define a grid layout that adapts responsively and styles the link appearance.
+
+       Class names used here (.sitemap-grid, .sitemap-link) are scoped only to this page.
+       ============================================================================ -->
   <style>
     .sitemap-container {
       max-width: 1920px;
@@ -19,7 +34,7 @@
     .sitemap-link {
       display: inline-block;
       margin: 0.25rem 0;
-      color: var(--bs-warning);
+      color: var(--jukebox-gold);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s ease;
@@ -27,7 +42,7 @@
 
     .sitemap-link:hover {
       text-decoration: underline;
-      color: #ffd700;
+      color: #ffe066;
     }
 
     .sitemap-grid {
@@ -39,7 +54,7 @@
 
     @media (min-width: 1200px) {
       .sitemap-grid {
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: repeat(8, 1fr); /* max 8 per row */
       }
     }
   </style>
@@ -47,44 +62,82 @@
 
 <body>
 
-  <!-- Shared Header -->
+  <!-- ============================================================================
+       SHARED HEADER INJECTION
+       ----------------------------------------------------------------------------
+       As with all major pages, we inject the shared nav bar using fetch().
+
+       The fetch path is absolute to ensure compatibility at this folder depth.
+       ============================================================================ -->
   <div id="site-header"></div>
 
-  <!-- HERO -->
+  <!-- ============================================================================
+       HERO SECTION — SITEMAP TITLE
+       ----------------------------------------------------------------------------
+       Introduces the sitemap with a friendly headline and context.
+       We use .section-card for consistent styling, centered alignment, and spacing.
+       ============================================================================ -->
   <header class="section-card text-center py-5">
     <h1 class="text-gold fw-bold">🗺️ Site Map</h1>
-    <p class="text-muted">These are the most visited pages on the site. The sitemap updates automatically whenever the content structure changes.</p>
+    <p class="text-muted">
+      These are the most commonly visited pages on the site. The sitemap updates
+      dynamically based on the site’s content structure file (tree.json).
+    </p>
   </header>
 
-  <!-- SITEMAP GRID -->
+  <!-- ============================================================================
+       SITEMAP GRID CONTAINER
+       ----------------------------------------------------------------------------
+       This block dynamically loads all pages marked for inclusion in the sitemap
+       from the JSON structure stored in /assets/data/tree.json.
+
+       The layout is responsive using CSS grid, and links are styled using the
+       .sitemap-link class for branding and hover effects.
+       ============================================================================ -->
   <main class="container sitemap-container py-5">
-    <section class="section-card p-4">
+    <section class="jukebox-card p-4">
       <div class="sitemap-grid" id="sitemapLinks">
-        <!-- Links injected dynamically -->
+        <!-- Links will be injected here via JavaScript -->
       </div>
     </section>
   </main>
 
-  <!-- Shared Footer -->
+  <!-- ============================================================================
+       SHARED FOOTER INJECTION
+       ----------------------------------------------------------------------------
+       As with the header, we load the footer dynamically using fetch().
+       We use an absolute URL so the footer always loads correctly.
+       ============================================================================ -->
   <div id="site-footer"></div>
 
-  <!-- Partial Injection -->
+  <!-- ============================================================================
+       PARTIAL INJECTION SCRIPT
+       ----------------------------------------------------------------------------
+       Injects header and footer via fetch(). Absolute paths are used for stability.
+       ============================================================================ -->
   <script>
-    fetch('partials/header.html')
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
 
-    fetch('partials/footer.html')
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/footer.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ============================================================================
+       SITEMAP DYNAMIC LINK LOADER
+       ----------------------------------------------------------------------------
+       This script fetches /assets/data/tree.json and recursively walks the structure.
 
-  <!-- Dynamic Sitemap Logic -->
+       Any node marked with `"sitemap": true` will be included. The title for each
+       link is shown as the label, and the path is used as the href. Broken or 
+       excluded entries are ignored.
+
+       This system ensures the sitemap stays up-to-date as long as tree.json is maintained.
+       ============================================================================ -->
   <script>
-    fetch('assets/data/tree.json')
+    fetch('https://jasytionline.github.io/r91-juke-box/assets/data/tree.json')
       .then(res => res.json())
       .then(tree => {
         const flatPages = [];
@@ -105,7 +158,7 @@
         const container = document.getElementById('sitemapLinks');
         flatPages.forEach(page => {
           const link = document.createElement('a');
-          link.href = `/${page.path}`;
+          link.href = `https://jasytionline.github.io/r91-juke-box/${page.path}`;
           link.textContent = page.title;
           link.className = 'sitemap-link';
           container.appendChild(link);
@@ -114,9 +167,16 @@
       .catch(err => {
         console.error('❌ Error loading sitemap data:', err);
         document.getElementById('sitemapLinks').innerHTML =
-          '<p class="text-danger">⚠️ Failed to load sitemap data. Check your tree.json path.</p>';
+          '<p class="text-danger">⚠️ Failed to load sitemap data. Please try again later.</p>';
       });
   </script>
+
+  <!-- ============================================================================
+       BOOTSTRAP JAVASCRIPT
+       ----------------------------------------------------------------------------
+       Enables interactivity for nav elements and layout behaviors. CDN-hosted.
+       ============================================================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

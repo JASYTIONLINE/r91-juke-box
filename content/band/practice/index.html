@@ -3,25 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Practice | DigiPort Jukebox</title>
+  <title>Practice Room | DigiPort Jukebox</title>
   <meta name="sitemap" content="include" />
+
+  <!-- ============================================================================
+       STYLESHEETS
+       ----------------------------------------------------------------------------
+       This file resides in /content/band/practice/index.html, which is three folders
+       deep. For this reason, we must use an ABSOLUTE path for the custom CSS file
+       so it can load properly on GitHub Pages.
+
+       Bootstrap is loaded from a CDN and does not require changes.
+       ============================================================================ -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="stylesheet" href="https://jasytionline.github.io/r91-juke-box/assets/css/custom.css" />
 </head>
+
 <body>
+
+  <!-- ============================================================================
+       SHARED HEADER PARTIAL INJECTION
+       ----------------------------------------------------------------------------
+       This header is injected dynamically using JavaScript fetch().
+
+       Because this file is deeply nested, we use an ABSOLUTE URL so the header
+       will be injected successfully regardless of folder depth.
+       ============================================================================ -->
   <div id="site-header"></div>
+
+  <!-- ============================================================================
+       HERO SECTION — BAND PRACTICE ROOM
+       ----------------------------------------------------------------------------
+       This hero block introduces the “Practice Room” — a tool for MMP Band members
+       to rehearse with stemmed tracks and multitrack versions of each song.
+
+       Styling is applied using .section-card for red/gold framing, and the
+       typography uses .text-gold and .text-muted per your visual identity.
+       ============================================================================ -->
+  <header class="section-card text-center py-5">
+    <h1 class="text-gold fw-bold">🎧 Practice Room</h1>
+    <p class="text-muted">
+      This page will host the DigiPort practice studio — a space to rehearse with
+      multitrack versions of each song in our set list. Band members will be able to
+      mute or isolate their part and practice in context.
+    </p>
+  </header>
+
+  <!-- ============================================================================
+       UNDER CONSTRUCTION PLACEHOLDER
+       ----------------------------------------------------------------------------
+       Until this feature is built, we use a placeholder notice to clearly indicate
+       that the page is in development.
+
+       The call-to-action button uses JavaScript's history.back() method to return
+       the user to the previous page.
+       ============================================================================ -->
   <main class="container my-5">
     <section class="section-card text-center py-5">
-      <h1 class="text-gold fw-bold">🚧 Practice - Page Under Construction</h1>
-      <p class="text-muted fs-5">Check back soon to browse albums.</p>
+      <h2 class="text-gold fw-bold">🚧 This page is under construction.</h2>
+      <p class="text-muted fs-5 mb-4">
+        The practice studio is being built and will soon allow for personalized rehearsal
+        using advanced track isolation and performance playback.
+      </p>
       <a href="javascript:history.back()" class="btn btn-warning">⬅️ Go Back</a>
     </section>
   </main>
+
+  <!-- ============================================================================
+       SHARED FOOTER PARTIAL INJECTION
+       ----------------------------------------------------------------------------
+       The footer is loaded from a shared file using fetch().
+
+       Again, we use an ABSOLUTE path to avoid issues with loading from deep folder levels.
+       ============================================================================ -->
   <div id="site-footer"></div>
+
+  <!-- ============================================================================
+       PARTIAL INJECTION SCRIPT
+       ----------------------------------------------------------------------------
+       This script injects the header and footer HTML using fetch() from GitHub Pages.
+
+       Because this file lives three folders deep, relative paths would fail — we use
+       full URLs to ensure reliability on all platforms and environments.
+       ============================================================================ -->
   <script>
-    fetch('partials/header.html').then(res => res.text()).then(html => document.getElementById('site-header').innerHTML = html);
-    fetch('partials/footer.html').then(res => res.text()).then(html => document.getElementById('site-footer').innerHTML = html);
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+
+    fetch('https://jasytionline.github.io/r91-juke-box/partials/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
+
+  <!-- ============================================================================
+       BOOTSTRAP JAVASCRIPT
+       ----------------------------------------------------------------------------
+       Loads Bootstrap's interactive components such as nav collapse and buttons.
+       This is loaded from CDN to simplify deployment.
+       ============================================================================ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
