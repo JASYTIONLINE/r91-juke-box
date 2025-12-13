@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,184 +46,194 @@
        ============================================================================ -->
   <header class="hero-section text-center">
     <h1 class="text-gold fw-bold">🎵 JASUYTI's Favorite Songs</h1>
-    <h2 class="text-muted fs-5">A curated collection of songs pulled froma mixture of 
-      true stories, personal experiences, and a little bit of artistic license thrown 
-      in for good measure. This is my personal playlist of songs that I love and that have helped me through the good and the bad.
-      </h2>
+    <h2 class="text-muted fs-5">A curated collection of songs pulled froma mixture of
+      true stories, personal experiences, and a little bit of artistic license thrown
+      in for good measure. This is my personal playlist of songs that I love and that have helped me through the good
+      and the bad.
+    </h2>
 
-  <!-- ============================================================================
+    <!-- ============================================================================
        SEARCH AND SORT SECTION
        ----------------------------------------------------------------------------
        This section provides search and sort controls for the playlist.
        Mobile-first design: controls stack on small screens, side-by-side on larger screens.
        ============================================================================ -->
-  <section class="section-card">
-    <div class="container-fluid">
-      <div class="row g-3">
-        <div class="col-12 col-md-6">
-          <label for="searchInput" class="form-label text-gold">Search Songs</label>
-          <div class="autocomplete-wrapper position-relative">
-            <input type="text" id="searchInput" class="form-control" placeholder="Type to search songs..." autocomplete="off" />
-            <div id="autocompleteDropdown" class="autocomplete-dropdown"></div>
+    <section class="section-card">
+      <div class="container-fluid">
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <label for="searchInput" class="form-label text-gold">Search Songs</label>
+            <div class="autocomplete-wrapper position-relative">
+              <input type="text" id="searchInput" class="form-control" placeholder="Type to search songs..."
+                autocomplete="off" />
+              <div id="autocompleteDropdown" class="autocomplete-dropdown"></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="sortSelect" class="form-label text-gold">Sort By</label>
+            <select id="sortSelect" class="form-select">
+              <option value="a-z">A-Z (Alphabetical)</option>
+              <option value="z-a">Z-A (Reverse Alphabetical)</option>
+            </select>
           </div>
         </div>
-        <div class="col-12 col-md-6">
-          <label for="sortSelect" class="form-label text-gold">Sort By</label>
-          <select id="sortSelect" class="form-select">
-            <option value="a-z">A-Z (Alphabetical)</option>
-            <option value="z-a">Z-A (Reverse Alphabetical)</option>
-          </select>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================================
+    <!-- ============================================================================
        SONG CARDS CONTAINER
        ----------------------------------------------------------------------------
        This container holds all song cards in a single column layout.
        Each card matches the featured song pattern from the home page.
        ============================================================================ -->
-  <main class="container my-4" id="songsContainer">
-    
-    <!-- Song 1 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="WATG Rock">
-      <h3 class="text-gold">WATG Rock</h3>
-      <p class="text-muted">
-        This is a placeholder description for WATG Rock. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="WATG Rock Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/1-watg-rock.wav" type="audio/wave" />
-      </audio>
-    </section>
+    <main class="container my-4" id="songsContainer">
 
-    <!-- Song 2 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="WATG Country">
-      <h3 class="text-gold">WATG Country</h3>
-      <p class="text-muted">
-        This is a placeholder description for WATG Country. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="WATG Country Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/2-watg-country.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 1 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="WATG Rock">
+        <h3 class="text-gold">WATG Rock Version</h3>
+        <p class="text-muted">
+          "We Are the Guard" is a tribute to the men and women of the U.S. National Guard. Established in 1789, the
+          National Guard is the oldest military organization in the United States, predating even the U.S. Army itself.
+          These citizen-soldiers serve a dual mission: protecting their local communities during natural disasters,
+          civil unrest, and emergencies, while also standing ready to defend the nation against foreign threats. When
+          the call comes, they leave behind their families, friends, careers, and the comfort of home to answer duty's
+          summons. Many have paid the ultimate sacrifice, giving their lives in service to both their communities and
+          their country. This song honors their history, their courage, and their unwavering commitment to being the
+          first line of defense—the backbone of American security, the pride of the nation, the We Are the Guard.
+        </p>
+        <img src="../../../assets/media/images/album-art/watg-rock.jpeg" alt="WATG Rock Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/1-watg-rock.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-    <!-- Song 3 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="Shadow Falls">
-      <h3 class="text-gold">Shadow Falls</h3>
-      <p class="text-muted">
-        This is a placeholder description for Shadow Falls. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="Shadow Falls Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/3-shadow-falls.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 2 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="WATG Country">
+        <h3 class="text-gold">WATG Country Version</h3>
+        <p class="text-muted">
+          This is a countrified version of "We Are the Guard," sharing the same powerful lyrics but delivered in a more traditional country style. The song pays tribute to the men and women of the U.S. National Guard, the oldest military organization in the United States, established in 1789. These citizen-soldiers serve a dual mission: protecting their local communities during emergencies while also defending the nation against foreign threats. When duty calls, they leave behind their families, friends, and careers to answer the summons. Many have paid the ultimate sacrifice in service to both their communities and their country. This country rendition honors their history, courage, and unwavering commitment as the first line of defense—the backbone of American security, the pride of the nation, the We Are the Guard.
+        </p>
+        <img src="../../../assets/media/images/album-art/feature.png" alt="WATG Country Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/2-watg-country.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-    <!-- Song 4 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="Big Bad John">
-      <h3 class="text-gold">Big Bad John</h3>
-      <p class="text-muted">
-        This is a placeholder description for Big Bad John. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="Big Bad John Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/4-big-bad-john.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 3 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="Shadow Falls">
+        <h3 class="text-gold">Shadow Falls</h3>
+        <p class="text-muted">
+          This is a placeholder description for Shadow Falls. The copyright and detailed explanation
+          of this track will be added here in a future update. This song represents a unique
+          musical expression within the playlist's overall narrative.
+        </p>
+        <img src="../../../assets/media/images/feature.png" alt="Shadow Falls Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/3-shadow-falls.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-    <!-- Song 5 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="Fail Forward">
-      <h3 class="text-gold">Fail Forward</h3>
-      <p class="text-muted">
-        This is a placeholder description for Fail Forward. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="Fail Forward Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/5-fail-forward.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 4 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="Big Bad John">
+        <h3 class="text-gold">Big Bad John</h3>
+        <p class="text-muted">
+          This is a placeholder description for Big Bad John. The copyright and detailed explanation
+          of this track will be added here in a future update. This song represents a unique
+          musical expression within the playlist's overall narrative.
+        </p>
+        <video class="img-fluid rounded mb-3 border-gold album-art" 
+               preload="metadata"
+               controls
+               style="cursor: pointer;">
+          <source src="../../../assets/media/images/album-art/bbj.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/4-big-bad-john.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-    <!-- Song 6 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="Ziggy's NES">
-      <h3 class="text-gold">Ziggy's NES</h3>
-      <p class="text-muted">
-        This is a placeholder description for Ziggy's NES. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="Ziggy's NES Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/6-ziggys-nes.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 5 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="Fail Forward">
+        <h3 class="text-gold">Fail Forward</h3>
+        <p class="text-muted">
+          This is a placeholder description for Fail Forward. The copyright and detailed explanation
+          of this track will be added here in a future update. This song represents a unique
+          musical expression within the playlist's overall narrative.
+        </p>
+        <img src="../../../assets/media/images/album-art/fail-forward-d.jpeg" alt="Fail Forward Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/5-fail-forward.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-    <!-- Song 7 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="The Promise">
-      <h3 class="text-gold">The Promise</h3>
-      <p class="text-muted">
-        This is a placeholder description for The Promise. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="The Promise Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/7-the-promise.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 6 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="Ziggy's NES">
+        <h3 class="text-gold">Ziggy's NES</h3>
+        <p class="text-muted">
+          This is a placeholder description for Ziggy's NES. The copyright and detailed explanation
+          of this track will be added here in a future update. This song represents a unique
+          musical expression within the playlist's overall narrative.
+        </p>
+        <img src="../../../assets/media/images/album-art/siggy.jpeg" alt="Ziggy's NES Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/6-ziggys-nes.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-    <!-- Song 8 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="Drivin Too Fast">
-      <h3 class="text-gold">Drivin Too Fast</h3>
-      <p class="text-muted">
-        This is a placeholder description for Drivin Too Fast. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="Drivin Too Fast Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/8-drivin-too-fast.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 7 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="The Promise">
+        <h3 class="text-gold">The Promise</h3>
+        <p class="text-muted">
+          This is a placeholder description for The Promise. The copyright and detailed explanation
+          of this track will be added here in a future update. This song represents a unique
+          musical expression within the playlist's overall narrative.
+        </p>
+        <img src="../../../assets/media/images/album-art/clear.jpeg" alt="The Promise Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/7-the-promise.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-    <!-- Song 9 -->
-    <section class="section-card text-center mb-4 song-card" data-song-name="My Son">
-      <h3 class="text-gold">My Son</h3>
-      <p class="text-muted">
-        This is a placeholder description for My Son. The copyright and detailed explanation
-        of this track will be added here in a future update. This song represents a unique
-        musical expression within the playlist's overall narrative.
-      </p>
-      <img src="../../../assets/media/images/feature.png" alt="My Son Album Art"
-           class="img-fluid rounded mb-3 border-gold album-art" />
-      <audio controls>
-        <source src="../../../assets/media/audio/songs/9-my-son.wav" type="audio/wave" />
-      </audio>
-    </section>
+      <!-- Song 8 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="Drivin Too Fast">
+        <h3 class="text-gold">Drivin Too Fast</h3>
+        <p class="text-muted">
+          This is a placeholder description for Drivin Too Fast. The copyright and detailed explanation
+          of this track will be added here in a future update. This song represents a unique
+          musical expression within the playlist's overall narrative.
+        </p>
+        <img src="../../../assets/media/images/album-art/too-fast.jpeg" alt="Drivin Too Fast Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/8-drivin-too-fast.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-  </main>
+      <!-- Song 9 -->
+      <section class="section-card text-center mb-4 song-card" data-song-name="My Son">
+        <h3 class="text-gold">My Son</h3>
+        <p class="text-muted">
+          This is a placeholder description for My Son. The copyright and detailed explanation
+          of this track will be added here in a future update. This song represents a unique
+          musical expression within the playlist's overall narrative.
+        </p>
+        <img src="../../../assets/media/images/album-art/my-son.jpeg" alt="My Son Album Art"
+          class="img-fluid rounded mb-3 border-gold album-art" />
+        <audio controls>
+          <source src="../../../assets/media/audio/songs/9-my-son.wav" type="audio/wav" />
+        </audio>
+      </section>
 
-  <!-- ============================================================================
+    </main>
+
+    <!-- ============================================================================
        SHARED FOOTER INJECTION
        ----------------------------------------------------------------------------
        Like the header, the footer is dynamically loaded from a shared partial
@@ -231,9 +242,9 @@
        We use an ABSOLUTE path so that this will load successfully regardless
        of how deep in the folder structure the current page resides.
        ============================================================================ -->
-  <div id="site-footer"></div>
+    <div id="site-footer"></div>
 
-  <!-- ============================================================================
+    <!-- ============================================================================
        PARTIAL INJECTION SCRIPT
        ----------------------------------------------------------------------------
        These JavaScript fetch() calls load the header and footer into the page.
@@ -241,206 +252,207 @@
        Absolute URLs are used so that the fetch will succeed even in deeply
        nested folders like this one (e.g. /content/audio/playlists/).
        ============================================================================ -->
-  <script>
-    fetch('../../../partials/header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-header').innerHTML = html);
+    <script>
+      fetch('../../../partials/header.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('site-header').innerHTML = html);
 
-    fetch('../../../partials/footer.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-footer').innerHTML = html);
-  </script>
+      fetch('../../../partials/footer.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('site-footer').innerHTML = html);
+    </script>
 
-  <!-- ============================================================================
+    <!-- ============================================================================
        SEARCH AND SORT FUNCTIONALITY
        ----------------------------------------------------------------------------
        This script handles search and sort functionality for the playlist.
        ============================================================================ -->
-  <script>
-    // Get all song cards and store original order
-    const songsContainer = document.getElementById('songsContainer');
-    const songCards = Array.from(document.querySelectorAll('.song-card'));
-    let originalOrder = [...songCards];
-    
-    // Get all song names for autocomplete
-    const allSongNames = songCards.map(card => card.getAttribute('data-song-name'));
+    <script>
+      // Get all song cards and store original order
+      const songsContainer = document.getElementById('songsContainer');
+      const songCards = Array.from(document.querySelectorAll('.song-card'));
+      let originalOrder = [...songCards];
 
-    // Autocomplete functionality
-    const searchInput = document.getElementById('searchInput');
-    const autocompleteDropdown = document.getElementById('autocompleteDropdown');
-    let selectedIndex = -1;
-    let filteredSongs = [];
+      // Get all song names for autocomplete
+      const allSongNames = songCards.map(card => card.getAttribute('data-song-name'));
 
-    // Show all songs when input is focused
-    searchInput.addEventListener('focus', function() {
-      showAutocomplete(allSongNames);
-    });
+      // Autocomplete functionality
+      const searchInput = document.getElementById('searchInput');
+      const autocompleteDropdown = document.getElementById('autocompleteDropdown');
+      let selectedIndex = -1;
+      let filteredSongs = [];
 
-    // Filter as user types
-    searchInput.addEventListener('input', function() {
-      const query = this.value.trim().toLowerCase();
-      if (query === '') {
+      // Show all songs when input is focused
+      searchInput.addEventListener('focus', function () {
         showAutocomplete(allSongNames);
-        showAllSongs();
-      } else {
-        filteredSongs = allSongNames.filter(song => 
-          song.toLowerCase().includes(query)
-        );
-        showAutocomplete(filteredSongs, query);
-        searchSongs(query);
-      }
-      selectedIndex = -1;
-    });
+      });
 
-    // Handle keyboard navigation
-    searchInput.addEventListener('keydown', function(e) {
-      if (!autocompleteDropdown.classList.contains('show')) return;
-
-      const items = autocompleteDropdown.querySelectorAll('.autocomplete-item');
-      
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
-        updateSelection(items);
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        selectedIndex = Math.max(selectedIndex - 1, -1);
-        updateSelection(items);
-      } else if (e.key === 'Enter') {
-        e.preventDefault();
-        if (selectedIndex >= 0 && items[selectedIndex]) {
-          items[selectedIndex].click();
+      // Filter as user types
+      searchInput.addEventListener('input', function () {
+        const query = this.value.trim().toLowerCase();
+        if (query === '') {
+          showAutocomplete(allSongNames);
+          showAllSongs();
+        } else {
+          filteredSongs = allSongNames.filter(song =>
+            song.toLowerCase().includes(query)
+          );
+          showAutocomplete(filteredSongs, query);
+          searchSongs(query);
         }
-      } else if (e.key === 'Escape') {
-        hideAutocomplete();
-      }
-    });
+        selectedIndex = -1;
+      });
 
-    // Click outside to close dropdown
-    document.addEventListener('click', function(e) {
-      if (!searchInput.contains(e.target) && !autocompleteDropdown.contains(e.target)) {
-        hideAutocomplete();
-      }
-    });
+      // Handle keyboard navigation
+      searchInput.addEventListener('keydown', function (e) {
+        if (!autocompleteDropdown.classList.contains('show')) return;
 
-    function showAutocomplete(songs, query = '') {
-      autocompleteDropdown.innerHTML = '';
-      
-      if (songs.length === 0) {
-        const noResults = document.createElement('div');
-        noResults.className = 'autocomplete-item';
-        noResults.textContent = 'No songs found';
-        noResults.style.cursor = 'default';
-        autocompleteDropdown.appendChild(noResults);
-      } else {
-        songs.forEach(song => {
-          const item = document.createElement('div');
-          item.className = 'autocomplete-item';
-          
-          // Highlight matching text if query provided
-          if (query) {
-            const regex = new RegExp(`(${query})`, 'gi');
-            item.innerHTML = song.replace(regex, '<span class="highlight">$1</span>');
-          } else {
-            item.textContent = song;
+        const items = autocompleteDropdown.querySelectorAll('.autocomplete-item');
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+          updateSelection(items);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIndex = Math.max(selectedIndex - 1, -1);
+          updateSelection(items);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (selectedIndex >= 0 && items[selectedIndex]) {
+            items[selectedIndex].click();
           }
-          
-          item.addEventListener('click', function() {
-            searchInput.value = song;
-            searchSongs(song.toLowerCase());
-            hideAutocomplete();
-            // Scroll to the selected song card
-            const selectedCard = songCards.find(card => 
-              card.getAttribute('data-song-name') === song
-            );
-            if (selectedCard) {
-              selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else if (e.key === 'Escape') {
+          hideAutocomplete();
+        }
+      });
+
+      // Click outside to close dropdown
+      document.addEventListener('click', function (e) {
+        if (!searchInput.contains(e.target) && !autocompleteDropdown.contains(e.target)) {
+          hideAutocomplete();
+        }
+      });
+
+      function showAutocomplete(songs, query = '') {
+        autocompleteDropdown.innerHTML = '';
+
+        if (songs.length === 0) {
+          const noResults = document.createElement('div');
+          noResults.className = 'autocomplete-item';
+          noResults.textContent = 'No songs found';
+          noResults.style.cursor = 'default';
+          autocompleteDropdown.appendChild(noResults);
+        } else {
+          songs.forEach(song => {
+            const item = document.createElement('div');
+            item.className = 'autocomplete-item';
+
+            // Highlight matching text if query provided
+            if (query) {
+              const regex = new RegExp(`(${query})`, 'gi');
+              item.innerHTML = song.replace(regex, '<span class="highlight">$1</span>');
+            } else {
+              item.textContent = song;
             }
+
+            item.addEventListener('click', function () {
+              searchInput.value = song;
+              searchSongs(song.toLowerCase());
+              hideAutocomplete();
+              // Scroll to the selected song card
+              const selectedCard = songCards.find(card =>
+                card.getAttribute('data-song-name') === song
+              );
+              if (selectedCard) {
+                selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            });
+
+            autocompleteDropdown.appendChild(item);
           });
-          
-          autocompleteDropdown.appendChild(item);
+        }
+
+        autocompleteDropdown.classList.add('show');
+      }
+
+      function updateSelection(items) {
+        items.forEach((item, index) => {
+          item.classList.toggle('active', index === selectedIndex);
         });
       }
-      
-      autocompleteDropdown.classList.add('show');
-    }
 
-    function updateSelection(items) {
-      items.forEach((item, index) => {
-        item.classList.toggle('active', index === selectedIndex);
-      });
-    }
-
-    function hideAutocomplete() {
-      autocompleteDropdown.classList.remove('show');
-      selectedIndex = -1;
-    }
-
-    function searchSongs(query) {
-      let hasResults = false;
-      
-      songCards.forEach(card => {
-        const songName = card.getAttribute('data-song-name').toLowerCase();
-        if (query === '' || songName.includes(query)) {
-          card.style.display = '';
-          hasResults = true;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      // Show alert if no results found (only if query is not empty and no matches)
-      if (query !== '' && !hasResults && filteredSongs.length === 0) {
-        showNotFoundAlert();
+      function hideAutocomplete() {
+        autocompleteDropdown.classList.remove('show');
+        selectedIndex = -1;
       }
-    }
 
-    function showNotFoundAlert() {
-      alert('The song you searched for is not included on this playlist page. We recommend returning to the home page and conducting a global search from there to find the song you\'re looking for.');
-    }
+      function searchSongs(query) {
+        let hasResults = false;
 
-    function showAllSongs() {
-      songCards.forEach(card => {
-        card.style.display = '';
-      });
-    }
+        songCards.forEach(card => {
+          const songName = card.getAttribute('data-song-name').toLowerCase();
+          if (query === '' || songName.includes(query)) {
+            card.style.display = '';
+            hasResults = true;
+          } else {
+            card.style.display = 'none';
+          }
+        });
 
-    // Sort functionality
-    const sortSelect = document.getElementById('sortSelect');
-    sortSelect.addEventListener('change', function() {
-      sortSongs(this.value);
-    });
-
-    function sortSongs(order) {
-      // Get currently visible cards
-      const visibleCards = songCards.filter(card => card.style.display !== 'none');
-      
-      // Sort visible cards
-      visibleCards.sort((a, b) => {
-        const nameA = a.getAttribute('data-song-name').toLowerCase();
-        const nameB = b.getAttribute('data-song-name').toLowerCase();
-        
-        if (order === 'a-z') {
-          return nameA.localeCompare(nameB);
-        } else {
-          return nameB.localeCompare(nameA);
+        // Show alert if no results found (only if query is not empty and no matches)
+        if (query !== '' && !hasResults && filteredSongs.length === 0) {
+          showNotFoundAlert();
         }
+      }
+
+      function showNotFoundAlert() {
+        alert('The song you searched for is not included on this playlist page. We recommend returning to the home page and conducting a global search from there to find the song you\'re looking for.');
+      }
+
+      function showAllSongs() {
+        songCards.forEach(card => {
+          card.style.display = '';
+        });
+      }
+
+      // Sort functionality
+      const sortSelect = document.getElementById('sortSelect');
+      sortSelect.addEventListener('change', function () {
+        sortSongs(this.value);
       });
 
-      // Reorder in DOM
-      visibleCards.forEach(card => {
-        songsContainer.appendChild(card);
-      });
-    }
-  </script>
+      function sortSongs(order) {
+        // Get currently visible cards
+        const visibleCards = songCards.filter(card => card.style.display !== 'none');
 
-  <!-- ============================================================================
+        // Sort visible cards
+        visibleCards.sort((a, b) => {
+          const nameA = a.getAttribute('data-song-name').toLowerCase();
+          const nameB = b.getAttribute('data-song-name').toLowerCase();
+
+          if (order === 'a-z') {
+            return nameA.localeCompare(nameB);
+          } else {
+            return nameB.localeCompare(nameA);
+          }
+        });
+
+        // Reorder in DOM
+        visibleCards.forEach(card => {
+          songsContainer.appendChild(card);
+        });
+      }
+    </script>
+
+    <!-- ============================================================================
        BOOTSTRAP JAVASCRIPT
        ----------------------------------------------------------------------------
        Bootstrap's JS is loaded here to support responsive nav, dropdowns, and
        any collapsible UI components. This is hosted via CDN.
        ============================================================================ -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
