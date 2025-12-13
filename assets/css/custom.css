@@ -234,3 +234,72 @@ audio {
   background-color: #e5c100;
   color: var(--jukebox-black);
 }
+
+
+/* ============================================================================
+   7. AUTOCOMPLETE DROPDOWN – Search Functionality
+   ----------------------------------------------------------------------------
+   Styles for the autocomplete dropdown used in playlist search functionality.
+   These styles provide a user-friendly search experience with filtering.
+   ============================================================================ */
+
+.autocomplete-wrapper {
+  position: relative;
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--jukebox-red);
+  border: 2px solid var(--jukebox-gold);
+  border-radius: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  margin-top: 2px;
+}
+
+.autocomplete-dropdown.show {
+  display: block;
+}
+
+.autocomplete-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: var(--text-light);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  transition: background-color 0.2s;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+  background-color: rgba(255, 215, 0, 0.1);
+  color: var(--jukebox-gold);
+}
+
+.autocomplete-item.highlight {
+  font-weight: bold;
+}
+
+/* ============================================================================
+   8. UTILITY CLASSES – Additional Helpers
+   ----------------------------------------------------------------------------
+   Additional utility classes for common styling needs.
+   ============================================================================ */
+
+/* Full width images within cards */
+.img-full-width {
+  max-width: 100%;
+}
+
+/* Cursor default for non-interactive text */
+.cursor-default {
+  cursor: default;
+}

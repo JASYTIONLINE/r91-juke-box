@@ -40,41 +40,135 @@
        ----------------------------------------------------------------------------
        This section introduces the Playlists area of the site.
 
-       Like all hero sections, it is wrapped in `.section-card`, which applies
-       the red background, gold border, and spacing.
+       It uses the .hero-section class, which provides a red background,
+       gold border, and centered padding, matching the home landing page style.
 
        Header elements use `.text-gold` for high contrast and branding,
        while the subtitle uses `.text-muted` to signal secondary content.
        ============================================================================ -->
-  <header class="section-card text-center py-5">
+  <header class="hero-section text-center">
     <h1 class="text-gold fw-bold">🎼 Playlists</h1>
-    <p class="text-muted">
-      Explore curated sets of songs grouped by mood, theme, story arc, or character.
-      Each playlist represents a hand-crafted musical journey created within the
-      DigiPort Jukebox system.
-    </p>
+    <h2 class="text-muted fs-5">Explore curated sets of songs grouped by mood, theme, story arc, or character.</h2>
   </header>
 
   <!-- ============================================================================
-       UNDER CONSTRUCTION CARD
+       PORTAL GRID (8 PLAYLIST CARDS)
        ----------------------------------------------------------------------------
-       Since this section is not yet populated with actual playlist data,
-       we provide a polite under construction message.
+       This section presents eight playlist cards in a responsive grid layout.
 
-       The layout uses `.section-card` for visual consistency.
-       A `Go Back` button uses JavaScript’s `history.back()` to return users
-       to their previous location within the audio section.
+       The .portal-wrapper adds a black background and gold border.
+       Each .portal-card inside represents a clickable playlist with album art,
+       title, description, and link to the playlist page.
+
+       Cards are laid out using Bootstrap's grid system (.row / .col-md-3) for
+       up to 4 cards per row on medium+ screens, wrapping responsively.
        ============================================================================ -->
-  <main class="container my-5">
-    <section class="section-card text-center py-5">
-      <h2 class="text-gold fw-bold">🚧 This page is under construction.</h2>
-      <p class="text-muted fs-5 mb-4">
-        Playlist content will be added here soon. Our music curators are currently
-        building out custom listening experiences for you to explore.
-      </p>
-      <a href="javascript:history.back()" class="btn btn-warning">⬅️ Go Back</a>
-    </section>
-  </main>
+  <section class="portal-wrapper">
+    <div class="container px-4">
+      <div class="row g-4">
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl1-aa.png" alt="Playlist 1 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 1</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-1.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl2-aa.png" alt="Playlist 2 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 2</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-2.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl3-aa.png" alt="Playlist 3 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 3</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-3.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl4-aa.png" alt="Playlist 4 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 4</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-4.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl5-aa.png" alt="Playlist 5 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 5</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-5.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl6-aa.png" alt="Playlist 6 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 6</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-6.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl7-aa.png" alt="Playlist 7 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 7</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-7.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+        <article class="col-md-3">
+          <section class="portal-card text-center">
+            <img src="../../assets/media/images/pl8-aa.png" alt="Playlist 8 Album Art"
+                 class="img-fluid rounded mb-3 border-gold img-full-width" />
+            <h3 class="text-gold">Playlist 8</h3>
+            <p class="text-muted">This is a curated collection of songs that captures a specific mood and theme. Each track has been carefully selected to create a cohesive listening experience that tells a story through music.</p>
+            <a href="playlist-8.html" class="btn btn-warning mt-2">Explore Playlist</a>
+          </section>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       ABOUT SECTION
+       ----------------------------------------------------------------------------
+       This section explains that this is a first draft and invites user feedback.
+
+       It uses .section-card for visual consistency with the rest of the site.
+       The header uses .text-gold to stand out, and the paragraph uses .text-muted
+       for a softer tone appropriate for body content.
+       ============================================================================ -->
+  <section class="section-card">
+    <h3 class="text-gold">Welcome to the Playlists Section</h3>
+    <p class="text-muted">
+      This is a first draft of the playlists page. We're continuously working to improve
+      the experience and would love to hear your feedback. If you have suggestions on how
+      we could make this page better, please reach out to us.
+    </p>
+    <a href="mailto:jasytionline@gmail.com" class="btn btn-warning mt-3">Contact Me</a>
+  </section>
 
   <!-- ============================================================================
        SHARED FOOTER INJECTION
