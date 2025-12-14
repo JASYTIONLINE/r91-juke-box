@@ -111,7 +111,7 @@ assets/dist/
 ############################
 # (Keep small, final assets manually; ignore heavy source files)
 # Audio formats
-*.wav
+# *.wav
 *.aiff
 *.aif
 *.flac
@@ -129,7 +129,7 @@ assets/dist/
 # Video formats
 *.mov
 *.avi
-*.mp4
+# *.mp4
 *.mkv
 *.mpg
 *.mpeg
