@@ -1,0 +1,144 @@
+🔁 Finish-to-Start Thinking (Dependency First)
+
+To avoid revisiting code, you must:
+
+Start with the thing that has the most downstream impact
+So that everything that follows can reference it without rework.
+
+This is how systems are built:
+
+Start with the most reused pieces
+
+Then the page shells
+
+Then site-specific content
+
+Then final style consolidation
+
+✅ Site-Level Dependency Map
+
+Let’s walk through your system, layer by layer:
+
+🧩 Level 1: Design Tokens & Theme Variables
+
+--jukebox-red, --jukebox-gold, etc.
+
+All layout, borders, buttons, backgrounds depend on these
+
+This can be built early but finalized last
+
+🧠 Impact: Everything downstream inherits these.
+
+🧱 Level 2: Global Components
+✅ Partial: header.html
+
+Every page includes this
+
+Affects navigation, branding, width, spacing, breakpoints
+
+✅ Partial: footer.html
+
+Same reuse as header
+
+Often includes branding, links, legal, contact info
+
+🧠 Impact:
+
+Every page relies on these partials
+
+CSS must support them
+
+Build and lock these first
+
+📄 Level 3: Layout Templates
+
+Each page shares layout patterns:
+hero → section-card → portal → featured → about
+
+You need:
+
+.hero-section
+
+.section-card
+
+.portal-wrapper
+
+.portal-card
+
+🧠 Impact:
+
+These classes are reused across pages
+
+Partial header/footer sit on top/below this structure
+
+Build before full pages
+
+📁 Level 4: Pages
+
+Once header, footer, and section layout are locked, you build pages:
+
+index.html
+
+/content/audio/index.html
+
+/content/video/index.html
+
+/content/karaoke/index.html
+
+/content/band/index.html
+
+/content/sitemap.html
+
+🧠 Dependencies:
+
+All of these rely on partials and shared components
+
+🧰 Level 5: JavaScript
+
+Injects header/footer
+Loads sitemap
+Enables navbar toggles
+
+🧠 Only added after HTML + structure is reliable
+
+🎨 Level 6: custom.css Final Pass
+
+At the end:
+
+Remove unused styles
+
+Refactor class names if needed
+
+Group everything logically:
+
+Tokens
+
+Layout
+
+Components
+
+Utilities
+
+🛠 Final Rebuild Order (Dependency-Optimized)
+🔁 Build Top-Down by Dependency — Once.
+Order	Phase	What
+1	Theme Tokens	Establish :root variables for color and spacing (basic structure only)
+2	Partials	Build header.html, footer.html — lock structure, use classes not styles
+3	Shared Layout Components	.hero-section, .section-card, .portal-card, .portal-wrapper
+4	Index Page	Build index.html using partials + layout components
+5	Content Pages	Refactor /content/*/index.html pages using the shared layout and partials
+6	JavaScript Injection	Add load-partials.js for dynamic nav/footer loading across pages
+7	Sitemap Page	Apply same layout rules + partials (last because it touches all other pages)
+8	Final CSS Pass	Remove unused rules, document structure, finalize class names
+🧠 Result: You Touch Each File Once, With Zero Rework
+
+No circling back.
+No page gets styled twice.
+No component gets guessed at and then rewritten.
+
+✅ TL;DR
+
+Build what has the most dependencies first.
+Don’t style until structure is stable.
+Don’t build pages until components and partials are finalized.
+Don’t finalize CSS until everything is built and tested.
