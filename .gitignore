@@ -125,6 +125,7 @@ assets/dist/
 *.band
 *.aup
 *.als
+.mp4
 
 # Video formats
 *.mov
